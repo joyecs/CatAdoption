@@ -1,0 +1,18 @@
+{%load url_paged %}{# tag name#}
+<div class='pagination'>
+    <span class='step-links'>
+        <a href="?{%url_paged page=1%}">&lt;&lt;first</a>
+        {% if objects.has_previous %}
+        <a href="?{%url_paged page=objects.previous_page_number%}">previous</a>
+        {%endif%}
+        <span class='current'>
+            {{objects.number}} of {{objects.paginator.num_pages}}
+        </span>
+        {%if objects.has_next%}
+        <a href="?{%url_paged page=objects.next_page_number%}">next</a>
+        {%endif%}
+        <a href="?{%url_paged page=objects.paginator.num_pages%}">last&gt;&gt;</a>
+    </span>
+    <span><input class='form-control' type="number" min="0" step="1" id='pagination-number'/></span>
+    <button id='pagination-go'>go</button>
+</div>

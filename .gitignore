@@ -1,0 +1,12 @@
+/secure
+/media
+
+#
+__pycache__/
+*.py[cod]
+*$py.class
+MANIFEST
+*.log
+.DS_Store
+venv/
+.venv/
