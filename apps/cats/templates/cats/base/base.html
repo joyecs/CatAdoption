@@ -1,53 +1,136 @@
  {% load static %}
-<!DOCTYPE HTML>
-<!--
+ <!DOCTYPE HTML>
+ <!--
 	Verti by HTML5 UP
 	html5up.net | @ajlkn
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 -->
-<html>
-	<head>
-		<title>Kitty House</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link rel="stylesheet" href="assets/css/main.css" />
-		<link rel="stylesheet" href="assets/css/pk1.css" />
-		
-	</head>
-	<body class="is-preload homepage">
-		<div id="page-wrapper">
+ <html>
 
-			<!-- Header -->
-				<div id="header-wrapper">
-					<header id="header" class="container">
+ <head>
+ 	<title>Kitty House</title>
+ 	<meta charset="utf-8" />
+ 	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+ 	<link rel="stylesheet" href="{% static 'cats/css/main.css' %}" />
+ 	<link rel="stylesheet" href="{% static 'cats/css/pk1.css' %}" />
+ 	{% block extra_css %}
+ 	{% endblock extra_css %}
 
-						<!-- Logo -->
-							<div id="logo">
-								<h1><a href="index.html">Kitty</a></h1>
-								<span> House</span>
-							</div>
+ </head>
 
-						<!-- Nav -->
-							<nav id="nav">
-								<ul>
-									<li class="current"><a href="index.html">Welcome</a></li>
-									<li><a href="adopt.html">Adopt</a></li>
-									<li><a href="donate.html">Donate</a></li>
-									<li><a href="volunteer.html">Volunteer</a></li>
-								</ul>
-							</nav>
+ <body class="is-preload homepage">
+ 	<div id="page-wrapper">
 
-					</header>
-				</div>
-        </div>
-        	<!-- Scripts -->
+ 		<!-- Header -->
+ 		<div id="header-wrapper">
+ 			<header id="header" class="container">
 
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/jquery.dropotron.min.js"></script>
-			<script src="assets/js/browser.min.js"></script>
-			<script src="assets/js/breakpoints.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<script src="assets/js/main.js"></script>
-    </body>
-</html>        
+ 				<!-- Logo -->
+ 				<div id="logo">
+ 					<h1><a href="{% url 'cats:index' %}">Kitty</a></h1>
+ 					<span> House</span>
+ 				</div>
 
+ 				<!-- Nav -->
+ 				<nav id="nav">
+ 					<ul>
+ 						<li><a href="{% url 'cats:index' %}">Welcome</a></li>
+ 						<li><a href="{% url 'cats:adopt' %}">Adopt</a></li>
+ 						<li><a href="{% url 'cats:donate' %}">Donate</a></li>
+ 						<li><a href="{% url 'cats:volunteer' %}">Volunteer</a></li>
+ 					</ul>
+ 				</nav>
+
+ 			</header>
+ 		</div>
+ 		{% block content %}
+ 		{% endblock content %}
+ 		<!-- Footer -->
+ 		<div id="footer-wrapper">
+ 			<footer id="footer" class="container">
+ 				<div class="row">
+
+
+ 					<div class="col-6 col-6-medium col-12-small">
+
+ 						<!-- Links -->
+ 						<section class="widget links">
+ 							<h3>Quick Link</h3>
+ 							<ul class="style2">
+ 								<li><a href="{% url 'cats:adopt' %}">Adopt</a></li>
+ 								<li><a href="{% url 'cats:donate' %}">Donate</a></li>
+ 								<li><a href="{% url 'cats:volunteer' %}">Volunteer</a></li>
+ 							</ul>
+ 						</section>
+
+
+ 					</div>
+
+ 					<div class="col-6 col-6-medium col-12-small">
+
+ 						<!-- Contact -->
+ 						<section class="widget contact">
+ 							<h3>Contact Us</h3>
+ 							<ul>
+ 								<li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a>
+ 								</li>
+ 								<li><a href="#" class="icon brands fa-facebook-f"><span
+ 											class="label">Facebook</span></a></li>
+ 								<li><a href="#" class="icon brands fa-instagram"><span
+ 											class="label">Instagram</span></a></li>
+ 								<li><a href="#" class="icon brands fa-dribbble"><span class="label">Dribbble</span></a>
+ 								</li>
+ 								<li><a href="#" class="icon brands fa-pinterest"><span
+ 											class="label">Pinterest</span></a></li>
+ 							</ul>
+ 							<p>14736 Valley Blvd,
+ 								La Puente, CA.
+ 								Kitty House</p>
+ 						</section>
+
+ 					</div>
+ 				</div>
+ 				<div class="row">
+ 					<div class="col-12">
+ 						<div id="copyright">
+ 							<ul class="menu">
+ 								<li>COPYRIGHT © 2020, PIKICODE CORP. ALL RIGHTS RESERVED.C4039862</li>
+ 								<!--<li>Design: <a href="http://html5up.net">HTML5 UP</a></li>-->
+ 							</ul>
+ 						</div>
+ 					</div>
+ 				</div>
+ 			</footer>
+ 		</div>
+ 	</div>
+ 	<!-- Scripts -->
+
+ 	<script src="{% static 'cats/js/jquery.min.js' %}"></script>
+ 	<script src="{% static 'cats/js/jquery.dropotron.min.js' %}"></script>
+ 	<script src="{% static 'cats/js/browser.min.js' %}"></script>
+ 	<script src="{% static 'cats/js/breakpoints.min.js' %}"></script>
+ 	<script src="{% static 'cats/js/util.js' %}"></script>
+ 	<script src="{% static 'cats/js/main.js' %}"></script>
+	<script>
+	$(document).ready(function(){
+		var location_ = window.location.href;
+		var tag = false;
+		$("#nav").find("a").each(function(){
+			var t = $(this).text().toLowerCase();
+			console.log(t);
+			console.log(location_.includes(t));
+			if(location_.includes(t)){
+				$(this).parent().addClass("current");
+				tag = true;
+			}	
+		});
+		if(tag==false){
+			$("#nav").find("li").first().addClass("current");
+		}
+	});
+	</script>
+ 	{% block extra_js %}
+ 	{% endblock extra_js %}
+ </body>
+
+ </html>

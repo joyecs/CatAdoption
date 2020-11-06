@@ -22,6 +22,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('home/', include('apps.home.urls', namespace='home')),
     path('', include('apps.home.urls', namespace='index')),
+    path('cats/', include('apps.cats.urls', namespace='cats')),
 ]
 
 if settings.DEBUG == True:
