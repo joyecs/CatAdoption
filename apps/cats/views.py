@@ -1,4 +1,8 @@
 from django.shortcuts import render
+from rest_framework import viewsets
+
+from .serializers import CatSerializer
+from .models import Cat
 
 # Create your views here.
 def index(request):
@@ -20,3 +24,7 @@ def volunteer(request):
     # return HttpResponse('index')
     html = 'cats/volunteer.html'
     return render(request, html)
+
+class CatViewSet(viewsets.ModelViewSet):
+    queryset = Cat.objects.all().order_by('breed')
+    serializer_class = CatSerializer

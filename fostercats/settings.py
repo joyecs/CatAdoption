@@ -14,6 +14,7 @@ import os
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+CAT_ROOT = os.path.join(BASE_DIR, 'media/cat_images/')
 
 SECRET_KEY = 'not-real#secure@key_do$not~use^this&in*production!'
 
@@ -35,7 +36,9 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     #
     'apps.home.apps.HomeConfig',
-    'apps.cats',
+    'apps.cats.apps.CatsConfig',
+    'apps.customers.apps.CustomersConfig',
+    'rest_framework'
 ]
 
 MIDDLEWARE = [
@@ -108,3 +111,10 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static"),
 ]
+
+# rest framework required
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework.authentication.TokenAuthentication',
+    ]
+}
