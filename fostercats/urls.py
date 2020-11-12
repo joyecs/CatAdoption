@@ -36,11 +36,3 @@ if settings.DEBUG == True:
 if settings.DEBUG == False:
     handler404 = 'apps.home.views.handler404'
     handler500 = 'apps.home.views.handler500'
-
-# for test
-if settings.DEBUG:
-    urlpatterns += [
-        url(r'^catimage/(?P<path>.*)$', serve, {
-            'document_root': settings.CAT_ROOT,
-        }),
-    ]
