@@ -39,7 +39,7 @@ INSTALLED_APPS = [
     #
     'apps.home.apps.HomeConfig',
     'apps.cats.apps.CatsConfig',
-    'apps.customers.apps.CustomersConfig',
+    'apps.adopters.apps.AdoptersConfig',
     'rest_framework'
 ]
 

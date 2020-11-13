@@ -26,7 +26,7 @@ urlpatterns = [
     path('home/', include('apps.home.urls', namespace='home')),
     path('', include('apps.home.urls', namespace='index')),
     path('cats/', include('apps.cats.urls', namespace='cats')),
-    path('customers/', include('apps.customers.urls'))
+    path('adopters/', include('apps.adopters.urls'))
 ]
 
 if settings.DEBUG == True:

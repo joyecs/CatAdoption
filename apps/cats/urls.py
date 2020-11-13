@@ -4,7 +4,9 @@ from rest_framework import routers
 
 app_name = 'cats'
 router = routers.DefaultRouter()
-router.register(r'', v.CatViewSet)
+router.register(r'cats', v.CatViewSet)
+router.register(r'imgs', v.CatImagesViewSet)
+
 urlpatterns = [
     path('',v.index, name="index"),
     path('adopt',v.adopt, name="adopt"),
@@ -12,6 +14,8 @@ urlpatterns = [
     path('volunteer',v.volunteer, name="volunteer"),
     path('api/', include(router.urls)),
     path('api-auth/', include('rest_framework.urls', namespace='rest_framework')),
+    path('cats/',v.cats_list, name="cats_list"),
+    path("catslist/", v.CatList.as_view(), name="catslist")
 ]
 
 

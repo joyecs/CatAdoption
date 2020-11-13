@@ -2,8 +2,9 @@ from django.urls import include, path
 from rest_framework import routers
 from . import views
 
+app_name='adopters'
 router = routers.DefaultRouter()
-router.register(r'', views.CustomerViewSet)
+router.register(r'adopters', views.AdopterViewSet)
 
 # Wire up our API using automatic URL routing.
 # Additionally, we include login URLs for the browsable API.
