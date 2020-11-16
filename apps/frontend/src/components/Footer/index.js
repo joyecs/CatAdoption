@@ -17,7 +17,7 @@ function Footer() {
                         </section>
                     </div>
 
-                    <div classNameName="col-6 col-6-medium col-12-small">
+                    <div className="col-6 col-6-medium col-12-small">
 
                         <section className="widget contact">
                             <h3>Contact Us</h3>
