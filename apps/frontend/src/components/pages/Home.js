@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 function Home() {
     return (
@@ -26,7 +27,7 @@ function Home() {
                         <div className="col-4 col-12-medium">
 
                             <section className="box feature">
-                                <a className="image featured"><img src="images/kitty01.jpeg" alt="" className="img-index" /></a>
+                                <Link to='/adopt' className="image featured"><img src="https://undark.org/wp-content/uploads/2020/02/GettyImages-1199242002-1-scaled.jpg" alt="" className="img-index" /></Link>
                                 <div className="inner">
                                     <header>
                                         <h2>Kitten is not just cute!</h2>
@@ -41,7 +42,7 @@ function Home() {
                         </div>
                         <div className="col-4 col-12-medium">
                             <section className="box feature">
-                                <a className="image featured"><img src="images/kitty02.jpeg" alt="" className="img-index" /></a>
+                                <Link to='/adopt' className="image featured"><img src="https://img.webmd.com/dtmcms/live/webmd/consumer_assets/site_images/article_thumbnails/other/cat_relaxing_on_patio_other/1800x1200_cat_relaxing_on_patio_other.jpg" alt="" className="img-index" /></Link>
                                 <div className="inner">
                                     <header>
                                         <h2>You get company!</h2>
@@ -57,7 +58,7 @@ function Home() {
                         <div className="col-4 col-12-medium">
 
                             <section className="box feature">
-                                <a className="image featured"><img src="images/kitty03.jpeg" alt="" className="img-index" /></a>
+                                <Link to='/adopt' className="image featured"><img src="https://cdn.cnn.com/cnn/interactive/2019/09/style/cat-photographer-cnnphotos/media/02.jpg" alt="" className="img-index" /></Link>
                                 <div className="inner">
                                     <header>
                                         <h2>Love, care and attention!</h2>

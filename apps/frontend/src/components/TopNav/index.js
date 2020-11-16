@@ -11,7 +11,6 @@ function TopNav() {
                     <h1><Link to="/">Kitty</Link></h1>
                     <span>House</span>
                 </div>
-
                 <nav id="nav">
                     <ul>
                         <li> 
