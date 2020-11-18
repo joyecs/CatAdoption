@@ -1,5 +1,9 @@
 import axios from "axios";
 
+// handle csrf tokens in React/Axios
+axios.defaults.xsrfCookieName = 'csrftoken'
+axios.defaults.xsrfHeaderName = 'X-CSRFToken'
+
 const PORT = "http://localhost:8080";
 
 export default {
@@ -13,6 +17,6 @@ export default {
     },
     // Save new lost cat
     saveCat: function(catData){
-        return axios.post(PORT + "/cats/catslist", catData);
+        return axios.post(PORT + "/cats/catslist/", catData);
     }
 };
