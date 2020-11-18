@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
 
 // const active_tab = () => {}
 
@@ -13,6 +13,10 @@ function TopNav() {
                 </div>
                 <nav id="nav">
                     <ul>
+                        <li> <NavLink exact activeClassName="current" to="/">HomePage</NavLink>  </li>
+                        <li> <NavLink exact activeClassName="current" to="/adopt">Adopt</NavLink>  </li>
+                    </ul>
+                    {/* <ul>
                         <li> 
                             <Link to="/" className={window.location.pathname === "/" ? "current" : ""}>Welcome</Link>         
                         </li>
@@ -25,7 +29,7 @@ function TopNav() {
                         <li>
                             <Link to="/volunteer" className={window.location.pathname === "/volunteer" ? "current" : ""}>Volunteer</Link>
                         </li>
-                    </ul>
+                    </ul> */}
                 </nav>
             </header>
         </div>
