@@ -8,6 +8,13 @@ class LostCatForm extends Component {
         color: "",
         image: null
     }
+    //handle select image on pop up
+    onFileChange = event =>{
+        this.setState({
+            selectedFile: event.target.files[0]
+        });
+    }
+    //handle file upload
 
     handleInputChange = event => {
         const { name, value } = event.target;
@@ -19,12 +26,26 @@ class LostCatForm extends Component {
     handleFormSubmit = event => {
         event.preventDefault();
         if (this.state.breed && this.state.age) {
-            API.saveCat({
-                breed: this.state.breed,
-                age: this.state.age,
-                color: this.state.color,
-                image: this.state.image
-            }).catch(err => console.log(err));
+            const formData = new FormData();
+            formData.append(
+                'breed',this.state.breed
+            )
+            formData.append(
+                'age',this.state.age
+            )
+            formData.append(
+                'color',this.state.color
+            )
+            formData.append(
+                'image',this.state.selectedFile
+            )
+            API.saveCat(formData).catch(err => console.log(err));
+            // API.saveCat({
+            //     breed: this.state.breed,
+            //     age: this.state.age,
+            //     color: this.state.color,
+            //     image: this.state.image
+            // }).catch(err => console.log(err));
         }
     };
 
@@ -57,10 +78,10 @@ class LostCatForm extends Component {
                         />
                         <input
                             value={this.state.lastName}
-                            name="age"
-                            onChange={this.handleInputChange}
+                            name="image"
+                            onChange={this.onFileChange}
                             type="file"
-                            placeholder="Last Name"
+                            placeholder="Cover Pic"
                         />
                         <button style={{ float: "right" }} onClick={this.handleFormSubmit}>Submit</button>
                     </form>
