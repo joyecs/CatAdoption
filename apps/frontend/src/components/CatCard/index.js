@@ -5,7 +5,7 @@ function CatCard(props) {
     return (
         <div className="col-4 col-12-medium">
             <section className="box feature" data-id={props.id}>
-                <Link to={`/adopt/${props.id}`} className="image featured"><img src={`http://localhost:8080${props.image}`} alt=""  className="img-index"/></Link>
+                <Link to={`/adopt/${props.id}`} className="image featured"><img src={`${process.env.REACT_APP_API_ROOT}${props.image}`} alt=""  className="img-index"/></Link>
                 <div className="inner">
                     <header>
                         <h2>{props.breed}</h2>

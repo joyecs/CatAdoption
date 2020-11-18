@@ -1,5 +1,5 @@
 // import logo from './logo.svg';
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import TopNav from "./components/TopNav";
 import Home from "./components/pages/Home";
 import Adopt from "./components/pages/Adopt";
@@ -15,12 +15,16 @@ function App() {
     <Router>
       <div>
         <TopNav />
-        <Route exact path="/" component={Home} />
+        <Switch>
+          <Route path="/" exact> <Home></Home> </Route>
+          <Route path="/adopt" exact> <Adopt></Adopt> </Route>
+        </Switch>
+        {/* <Route exact path="/" component={Home} />
         <Route exact path="/adopt" component={Adopt} />
         <Route exact path="/adopt/:id" component={CatDetails} />
         <Route exact path="/donate" component={Donate} />
         <Route exact path="/volunteer" component={Volunteer} />
-        <Route exact path="/postlostcat" component={LostCatForm} />
+        <Route exact path="/postlostcat" component={LostCatForm} /> */}
         <Footer />
       </div>
     </Router>
